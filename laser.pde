@@ -1,3 +1,5 @@
+  int rangeLow = 20;
+  int rangeHigh = 35;
 void setup() {
   size(1600, 600, OPENGL);
   
@@ -9,8 +11,7 @@ void setup() {
 //  jmyron.minDensity(15); //minimum pixels in the glob required to result in a box
   video = new Capture(this, cam_width,cam_height);
   video.start();
-    int rangeLow = 20;
-  int rangeHigh = 35;
+  
   opencv = new OpenCV(this, video.width, video.height);
   
   cam_image = new PImage(cam_width, cam_height);
@@ -126,8 +127,8 @@ void track_laser(){
       pointer_is_moving = false;
     }
     pointer_on_screen = true;
-    pointer[0] = r.x;
-    pointer[1] = r.y;
+    pointer[0] = r.x + r.width/2;
+    pointer[1] = r.y + r.height/2;
     //pointer[0] = (int)(mouseX);
     //pointer[1] = (int)(mouseY);      
 
