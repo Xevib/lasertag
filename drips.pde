@@ -74,6 +74,13 @@ class DripsScreen {
   }
   
   public void draw(){
+    
+    
+    
+    
+    
+    
+    
     //all done in update() for increased performance
     noFill();
     stroke(colour);
