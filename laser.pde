@@ -1,3 +1,52 @@
+void setup() {
+  size(800, 600, OPENGL);
+  
+//  jmyron = new JMyron();//make a new instance of the object
+
+//  jmyron.start(cam_width, cam_height);//start a capture at 320x240
+//  jmyron.trackColor(0,255,0,color_threshold); //R, G, B, and range of similarity
+
+//  jmyron.minDensity(15); //minimum pixels in the glob required to result in a box
+  video = new Capture(this, cam_width,cam_height);
+  video.start();
+  
+  opencv = new OpenCV(this, video.width, video.height);
+  
+  cam_image = new PImage(cam_width, cam_height);
+  
+  a_quad[0] = new Point2D.Float(0.0,0.0);
+  a_quad[1] = new Point2D.Float(1.0,0.0);
+  a_quad[2] = new Point2D.Float(1.0,1.0);
+  a_quad[3] = new Point2D.Float(0.0,1.0);
+    
+  //top left
+  coordinates_projector[0][0] = 50;
+  coordinates_projector[0][1] = 10;
+  //top right
+  coordinates_projector[1][0] = cam_width-50;
+  coordinates_projector[1][1] = 65;
+  //bottom left
+  coordinates_projector[2][0] = cam_width-30;
+  coordinates_projector[2][1] = cam_height-40;
+  //bottom right
+  coordinates_projector[3][0] = 5;
+  coordinates_projector[3][1] = cam_height-15;
+  
+  pointer_on_screen = false;
+  pointer_is_moving = false;
+  
+//  PFont f = loadFont("Univers66.vlw.gz");
+//  textFont(f, 16);
+    
+  calibration_point = 4;
+  cleararea_calibration_point = 4;
+
+  drips_position = -1;
+  current_color = 0;
+  change_color(colors[0]);
+}
+
+
 void update_laser_position(){
   if(pointer_on_screen){
     if(pointer_is_moving){
