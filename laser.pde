@@ -87,8 +87,9 @@ void track_laser(){
   
     rangeLow = hue - 5;
     rangeHigh = hue + 5;
+    is_color_set = true;
   }
-  if(mousePressed && (mouseButton == LEFT)){   
+  if(is_color_set){   
     
     brightestX = mouseX;
     brightestY = mouseY;
@@ -166,7 +167,7 @@ void track_mouse_as_laser(){
 
     pointer[0] = (int)(mouseX);
     pointer[1] = (int)(mouseY);      
-
+    is_color_set = true;
   }
   else{
     pointer_is_visible = false;

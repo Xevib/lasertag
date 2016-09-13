@@ -63,6 +63,7 @@ boolean should_draw_fatmarker = true;
 boolean should_draw_drips = true;
 boolean should_use_mouse = false;
 boolean should_draw_left = false;
+boolean is_color_set=false;
 
 //rotation
 boolean wannarotate = false;
